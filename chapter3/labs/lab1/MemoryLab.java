@@ -18,11 +18,20 @@ public class MemoryLab {
         
         // TODO: 기본 타입 변수 두 개를 선언하고, 하나를 다른 하나에 할당한 후
         // 값을 변경했을 때 어떤 일이 발생하는지 관찰하세요.
-        
+        int a = 2;
+        int b = 3;
+        a = b;
+        System.out.println(a);
+        b = 5;
+        System.out.println(a);
         
         // TODO: 참조 타입 변수 두 개를 선언하고, 하나를 다른 하나에 할당한 후
         // 참조된 객체의 값을 변경했을 때 어떤 일이 발생하는지 관찰하세요.
-        
+        Person personA = new Person("JOHN");
+        Person personB = personA;
+        System.out.println(personB.getName());
+        personA.setName("SUE");
+        System.out.println(personB.getName());
         
         // 2. 매개변수 전달 방식 실습
         System.out.println("\n2. 메소드 호출 시 매개변수 전달 방식");
@@ -51,7 +60,7 @@ class Person {
     private String name;
     private int age;
     
-    public Person(String name, int age) {
+    public Person(String name) {
         this.name = name;
         this.age = age;
     }

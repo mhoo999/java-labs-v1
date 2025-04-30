@@ -115,7 +115,7 @@ public class StringExample {
         // String 연결 (효율성 낮음)
         long startTime = System.nanoTime();
         String result = "";
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100000; i++) {
             result += "a";
         }
         long endTime = System.nanoTime();
@@ -124,7 +124,7 @@ public class StringExample {
         // StringBuilder 사용 (효율성 높음)
         startTime = System.nanoTime();
         StringBuilder builder = new StringBuilder();
-        for (int i = 0; i < 10000; i++) {
+        for (int i = 0; i < 100000; i++) {
             builder.append("a");
         }
         result = builder.toString();
