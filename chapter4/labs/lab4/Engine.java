@@ -8,15 +8,18 @@ package chapter4.labs.lab4;
 public class Engine {
     // TODO: 적절한 접근 제한자를 사용하여 필드를 정의하세요.
     // (엔진 타입, 마력, 작동 상태 등)
-    
-    
+    final private String type;
+    final private int horsepower;
+    private String state;
     
     // TODO: 생성자를 정의하세요.
     
     
     
     // TODO: 엔진을 시작하는 메소드를 정의하세요.
-    
+    public void startEngine() {
+        System.out.println("두두두두두두(엔진소리)");
+    }
     
     
     // TODO: 엔진을 정지하는 메소드를 정의하세요.
