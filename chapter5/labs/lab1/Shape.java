@@ -8,14 +8,25 @@ package chapter5.labs.lab1;
  */
 public class Shape {
     // TODO: 도형의 기본 속성 정의 (예: 이름, 색상)
-    
+    String name;
+    String color;
     
     // TODO: 생성자 정의
-    
-    
+    public Shape(String name, String color) {
+        this.name = name;
+        this.color = color;
+    }
+
     // TODO: 면적을 계산하는 메소드 정의
-    
-    
+    public double getArea() {
+        return  0;
+    }
+
     // TODO: 도형 정보를 출력하는 메소드 정의
-    
+    public void getInfo() {
+        System.out.println("이름은 : " + name);
+        System.out.println("색상은 : " + color);
+        System.out.println("면적은 : " + getArea());
+    }
+
 } 
