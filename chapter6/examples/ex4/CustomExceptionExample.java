@@ -65,5 +65,6 @@ public class CustomExceptionExample {
         if (age <= 0 || age >= 150) {
             throw new CustomException("나이가 유효하지 않습니다.", ERROR_INVALID_AGE);
         }
+
     }
 } 

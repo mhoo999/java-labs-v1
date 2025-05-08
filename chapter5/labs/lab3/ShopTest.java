@@ -19,7 +19,7 @@ public class ShopTest {
         Book bookB = new DiscountedBook("삼국지:조조전", 15000, "유명훈", 30.0);
         
         // TODO: ShoppingCart 객체 생성
-        ShoppingCart shoppingCart = new ShoppingCart(3);
+        ShoppingCart shoppingCart = new ShoppingCart();
         
         // TODO: 장바구니에 상품 추가하기
         shoppingCart.addItem(bookA);
@@ -36,6 +36,7 @@ public class ShopTest {
         
         
         // TODO: Discountable 인터페이스를 구현한 객체만 별도로 처리하기
+        shoppingCart.findDiscountable();
         
     }
 } 

@@ -1,6 +1,7 @@
 package chapter6.labs.lab2;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
@@ -12,13 +13,12 @@ import java.util.Scanner;
  * 파일 입출력 작업에서 발생할 수 있는 다양한 예외를 처리해야 합니다.
  */
 public class FileIOExceptionLab {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Lab 2: 파일 입출력과 예외처리 실습");
         
         Scanner scanner = new Scanner(System.in);
         
         // TODO: 사용자로부터 읽을 파일 이름을 입력받으세요.
-        
         
         // TODO: try-with-resources 구문을 사용하여 파일을 읽고 내용을 분석하세요.
         // 1. BufferedReader를 사용하여 파일을 한 줄씩 읽습니다.
@@ -31,7 +31,26 @@ public class FileIOExceptionLab {
         
         
         // 참고: 단어 수 계산을 위해 String.split("\\s+") 메소드를 활용할 수 있습니다.
-        
+        try (BufferedReader br = new BufferedReader(new FileReader("/Users/mac/Documents/java-labs-v1/chapter6/labs/lab2/sample.txt"))){
+            int lines = 0;
+            int words = 0;
+            int characters = 0;
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                lines++;
+                words += line.split("\\s+").length;
+                characters += line.split("").length;
+
+//                System.out.println(line);
+//                System.out.println("단어 갯수 : " + line.split("\\s+").length + "글자 갯수 : " + line.split("").length);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println("예상치 못한 오류 발생!");
+            System.out.println("예외 메시지 : " + e.getMessage());
+        }
         
         scanner.close();
         System.out.println("프로그램을 종료합니다.");

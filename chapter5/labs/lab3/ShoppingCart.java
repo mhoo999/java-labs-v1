@@ -11,11 +11,11 @@ import java.util.List;
  */
 public class ShoppingCart {
     // TODO: 상품 목록을 저장할 리스트 선언
-    private List<Buyable> items;
+    private final ArrayList<Buyable> items;
     private int totalPrice;
     
     // TODO: 생성자 정의
-    public ShoppingCart(int size) {
+    public ShoppingCart() {
         this.items = new ArrayList<>();
         this.totalPrice = 0;
     }
@@ -44,6 +44,14 @@ public class ShoppingCart {
             if (item != null) {
                 System.out.println(sequence + "번째 아이템은 : " + item.getTitle());
                 sequence++;
+            }
+        }
+    }
+
+    public void findDiscountable() {
+        for (Buyable item : items) {
+            if (item instanceof Discountable) {
+                System.out.println(item.getTitle() + "은(는) 할인 상품입니다.");
             }
         }
     }
