@@ -1,5 +1,7 @@
 package chapter8.labs.lab2;
 
+import java.util.Objects;
+
 /**
  * Lab 2: 컬렉션 프레임워크 활용하기
  *
@@ -26,17 +28,87 @@ public class Book implements Comparable<Book> {
     }
     
     // TODO: getter와 setter 메소드를 구현하세요.
-    
-    
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public void setPublicationYear(int publicationYear) {
+        this.publicationYear = publicationYear;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     // TODO: toString 메소드를 오버라이드하세요.
-    
-    
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "isbn='" + isbn + '\'' +
+                ", title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", category='" + category + '\'' +
+                ", publicationYear=" + publicationYear +
+                ", price=" + price +
+                '}';
+    }
+
+
     // TODO: equals 메소드를 오버라이드하세요.
-    
-    
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Book book = (Book) o;
+        return publicationYear == book.publicationYear && Double.compare(price, book.price) == 0 && Objects.equals(isbn, book.isbn) && Objects.equals(title, book.title) && Objects.equals(author, book.author) && Objects.equals(category, book.category);
+    }
+
     // TODO: hashCode 메소드를 오버라이드하세요.
-    
-    
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(isbn, title, author, category, publicationYear, price);
+    }
+
+
     /**
      * Comparable 인터페이스의 compareTo 메소드 구현
      * 기본적으로 ISBN 기준으로 비교합니다.
@@ -44,6 +116,6 @@ public class Book implements Comparable<Book> {
     @Override
     public int compareTo(Book other) {
         // TODO: ISBN 기준으로 비교하도록 구현하세요.
-        return 0;
+        return CharSequence.compare(this.isbn, other.isbn);
     }
 } 
